@@ -9,11 +9,10 @@ const ExploreMenu = ({ category, setCategory }) => {
     <div className="flex flex-col gap-5 px-[4%] py-10" id="explore-menu">
       <h1 className="text-[#262626] font-medium text-3xl">Explore our menu</h1>
 
-      <p className="text-[#808080] max-w-[60%] text-base leading-relaxed">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
-        adipisci natus ipsum quis dolor repudiandae eligendi eos nam! Totam
-        culpa quas quaerat alias sit numquam minus repellendus explicabo nihil
-        obcaecati!
+      <p className="text-[#808080] max-w-[100%] md:max-w-[60%] text-base leading-relaxed">
+        Dive into a world of flavors with our carefully crafted menu. From juicy
+        burgers and crispy fries to mouth-watering desserts — FoodHub brings
+        your cravings to life with every bite.
       </p>
 
       <div className="flex items-center gap-[30px] overflow-x-scroll no-scrollbar text-center my-5">

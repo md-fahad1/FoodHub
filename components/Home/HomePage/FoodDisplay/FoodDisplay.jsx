@@ -5,12 +5,7 @@ import { food_list } from "@/public/assets/assets";
 import FoodItem from "../FoodItem/FoodItem";
 
 const FoodDisplay = () => {
-  // Dummy food list
-
-  // Selected category (can change this if needed)
   const [category, setCategory] = useState("All");
-
-  // Cart state: object with item id as key and quantity as value
   const [cartItems, setCartItems] = useState({});
 
   const addToCart = (id) => {
@@ -33,17 +28,17 @@ const FoodDisplay = () => {
   };
 
   return (
-    <div className="mt-8 px-[4%]" id="food-display">
-      <h2 className="text-[max(2vw,24px)] font-semibold text-[#262626]">
-        Top dishes near you
+    <div className="mt-4 px-4 sm:px-6 lg:px-8 mb-6" id="food-display">
+      <h2 className="text-[max(2vw,24px)] font-bold text-[#262626] ">
+        Top Dishes Near You
       </h2>
 
-      {/* Category selector for demo */}
-      <div className="my-4">
+      {/* Category Filter */}
+      <div className="mb-6">
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="p-2 border rounded"
+          className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
         >
           <option value="All">All</option>
           <option value="Chicken">Chicken</option>
@@ -52,9 +47,10 @@ const FoodDisplay = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-7 gap-y-12 mt-8 mb-6">
+      {/* Responsive Food Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {food_list.map((item) => {
-          if (category === "All" || category === item.category) {
+          if (category === "All" || item.category === category) {
             return (
               <FoodItem
                 key={item._id}

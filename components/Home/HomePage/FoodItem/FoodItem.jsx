@@ -63,8 +63,10 @@ const FoodItem = ({
       {/* Info Section */}
       <div className="px-5 py-4">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
-          <div className="flex items-center gap-1 text-yellow-500 text-sm">
+          <h3 className=" text-sm md:text-lg font-semibold text-gray-800">
+            {name}
+          </h3>
+          <div className=" hidden md:flex items-center gap-1 text-yellow-500 text-sm">
             <FaStar />
             <FaStar />
             <FaStar />
@@ -73,7 +75,7 @@ const FoodItem = ({
           </div>
         </div>
         <p className="text-sm text-gray-500 line-clamp-2">{description}</p>
-        <p className="text-tomato text-xl font-bold mt-3">
+        <p className="text-tomato text-sm md:text-xl font-bold mt-3">
           ${price.toFixed(2)}
         </p>
       </div>

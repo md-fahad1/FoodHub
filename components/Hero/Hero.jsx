@@ -5,15 +5,14 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[500px] mt-2 rounded-xl overflow-hidden shadow-md">
+    <div className="relative w-full h-[300px] md:h-[450px] mt-2 rounded-xl overflow-hidden shadow-md">
       {/* Background Image */}
       <Image
-        src="/home.jpg" // adjust path if needed
-        alt="Hero Background"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        className="z-0 shadow-md"
+        src="/home.jpg"
+        alt="Delicious Food"
+        fill
+        className="object-cover z-0"
+        priority
       />
 
       {/* Overlay */}
@@ -21,17 +20,17 @@ const Hero = () => {
 
       {/* Text Content */}
       <div className="relative z-20 h-full flex flex-col justify-center px-10 text-white">
-        <div className="  px-6 py-4 rounded-md max-w-[80%] sm:max-w-[60%] md:max-w-[50%] mb-4">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+        <div className=" px-1 py-1 md:px-6 md:py-4 rounded-md max-w-[90%] sm:max-w-[60%] md:max-w-[50%] mb-4">
+          <h1 className=" text-2xl md:text-4xl sm:text-5xl font-bold leading-tight">
             Order your favorite <br /> food here
           </h1>
         </div>
-        <p className="text-sm sm:text-base max-w-[70%] mb-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-          inventore nihil ex magnam autem culpa veniam debitis delectus expedita
-          pariatur?
+        <p className="text-sm sm:text-base max-w-[90%] md:max-w-[70%] mb-6">
+          Discover delicious meals from top restaurants near you. Whether you're
+          craving something spicy, sweet, or savory — FoodHub brings the best
+          flavors to your doorstep in no time.
         </p>
-        <button className="bg-white text-black font-medium px-6 py-2 rounded-full w-fit hover:bg-gray-200 transition">
+        <button className="bg-tomato text-white font-medium px-5 py-1 rounded-full w-fit hover:bg-gray-200 transition">
           view menu
         </button>
       </div>
