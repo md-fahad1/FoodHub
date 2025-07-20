@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className={`w-[90%] mx-auto ${inter.className}`}>
+    <div className={`md:w-[90%] w-[96%] mx-auto ${inter.className}`}>
       <WhatsApp />
       <Hero />
 

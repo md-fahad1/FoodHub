@@ -28,7 +28,7 @@ const FoodDisplay = () => {
   };
 
   return (
-    <div className="mt-4 px-4 sm:px-6 lg:px-8 mb-6" id="food-display">
+    <div className="mt-4 px-1 md:px-4 sm:px-6 lg:px-8 mb-6" id="food-display">
       <h2 className="text-[max(2vw,24px)] font-bold text-[#262626] ">
         Top Dishes Near You
       </h2>
