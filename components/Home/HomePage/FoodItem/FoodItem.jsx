@@ -4,23 +4,18 @@ import React from "react";
 import Image from "next/image";
 import { FaPlus, FaMinus, FaStar } from "react-icons/fa";
 
-// Dummy icon assets (replace with actual if needed)
-const assets = {
-  rating_stars: "/icons/rating-stars.svg", // Replace with your image or remove if not available
-};
-
 const FoodItem = ({
   id,
   name,
   price,
   description,
   image,
-  cartItems,
-  addToCart,
-  removeFromCart,
+  quantity,
+  showControls,
+  onToggleControls,
+  onIncrease,
+  onDecrease,
 }) => {
-  const quantity = cartItems[id] || 0;
-
   return (
     <div className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-[1.02] transition duration-300">
       {/* Image Section */}
@@ -35,10 +30,10 @@ const FoodItem = ({
 
         {/* Quantity Control */}
         <div className="absolute bottom-4 right-4">
-          {quantity === 0 ? (
+          {!showControls ? (
             <button
-              onClick={() => addToCart(id)}
-              className="bg-tomato text-white p-2 rounded-full shadow-lg hover:scale-110 transition"
+              onClick={onToggleControls}
+              className="bg-red-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition"
               title="Add to cart"
             >
               <FaPlus size={18} />
@@ -46,13 +41,18 @@ const FoodItem = ({
           ) : (
             <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full shadow-lg">
               <button
-                onClick={() => removeFromCart(id)}
-                className="text-red-500"
+                onClick={onDecrease}
+                className="text-red-500 hover:text-red-700 transition"
+                title="Decrease quantity"
               >
                 <FaMinus size={14} />
               </button>
               <span className="font-medium text-gray-700">{quantity}</span>
-              <button onClick={() => addToCart(id)} className="text-green-600">
+              <button
+                onClick={onIncrease}
+                className="text-green-600 hover:text-green-800 transition"
+                title="Increase quantity"
+              >
                 <FaPlus size={14} />
               </button>
             </div>
@@ -66,7 +66,7 @@ const FoodItem = ({
           <h3 className=" text-sm md:text-lg font-semibold text-gray-800">
             {name}
           </h3>
-          <div className=" hidden md:flex items-center gap-1 text-yellow-500 text-sm">
+          <div className="hidden md:flex items-center gap-1 text-yellow-500 text-sm">
             <FaStar />
             <FaStar />
             <FaStar />
@@ -75,7 +75,7 @@ const FoodItem = ({
           </div>
         </div>
         <p className="text-sm text-gray-500 line-clamp-2">{description}</p>
-        <p className="text-tomato text-sm md:text-xl font-bold mt-3">
+        <p className="text-red-600 text-sm md:text-xl font-bold mt-3">
           ${price.toFixed(2)}
         </p>
       </div>

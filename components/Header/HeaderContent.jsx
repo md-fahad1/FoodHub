@@ -3,8 +3,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaHeart, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "@/lib/features/hooks"; // adjust this path if needed
+import { cartVisible } from "@/lib/features/cart/cartSlice"; // optional, only if used
 
 const Navbar = ({ setLogin }) => {
+  const { items } = useAppSelector((state) => state.cart);
+  console.log("item", items);
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -73,9 +79,13 @@ const Navbar = ({ setLogin }) => {
 
             {/* Cart */}
             <Link href="/cartpage">
-              <div className="relative">
+              <div className="relative cursor-pointer">
                 <FaShoppingCart className="text-xl text-gray-600 hover:text-green-600 transition" />
-                <span className="absolute -top-1 -right-1 h-2 w-2 bg-red-600 rounded-full" />
+                {items.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-semibold h-5 w-5 flex items-center justify-center rounded-full">
+                    {items.length}
+                  </span>
+                )}
               </div>
             </Link>
 

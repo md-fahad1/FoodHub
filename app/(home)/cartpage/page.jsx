@@ -5,50 +5,44 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FiTrash2 } from "react-icons/fi";
 import { FaMinus, FaPlus } from "react-icons/fa";
-
-const food_list = [
-  {
-    _id: "1",
-    name: "Cheese Burger",
-    price: 8,
-    image: "/burger.jpg",
-  },
-  {
-    _id: "2",
-    name: "Veg Pizza",
-    price: 10,
-    image: "/pizza.jpg",
-  },
-];
-
-const initialCartItems = {
-  1: 2,
-  2: 1,
-};
+import { useAppSelector, useAppDispatch } from "@/lib/features/hooks"; // adjust import path
+import {
+  addToCart,
+  removeFromCart,
+  cartCountIncrement,
+  cartCountDecrement,
+} from "@/lib/features/cart/cartSlice"; // make sure these actions exist and are exported
 
 const CartPage = () => {
-  const [cartItems, setCartItems] = useState(initialCartItems);
-  const [promo, setPromo] = useState("");
+  const items = useAppSelector((state) => state.cart.items);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const updateQuantity = (id, type) => {
-    const updated = { ...cartItems };
-    if (type === "inc") updated[id] += 1;
-    else if (type === "dec" && updated[id] > 1) updated[id] -= 1;
-    setCartItems(updated);
+  const [promo, setPromo] = useState("");
+
+  // Increase quantity by 1
+  const increaseQuantity = (item) => {
+    if (item.count >= 10) return; // max 10 quantity
+    dispatch(cartCountIncrement(item.productId));
   };
 
-  const removeFromCart = (id) => {
-    const updated = { ...cartItems };
-    delete updated[id];
-    setCartItems(updated);
+  // Decrease quantity by 1; if count reaches 1 and user clicks decrease, remove item
+  const decreaseQuantity = (item) => {
+    if (item.count <= 1) {
+      dispatch(removeFromCart(item.productId));
+      return;
+    }
+    dispatch(cartCountDecrement(item.productId));
   };
 
+  // Remove item completely
+  const removeItem = (productId) => {
+    dispatch(removeFromCart(productId));
+  };
+
+  // Calculate total amount without delivery fee
   const getTotalCartAmount = () =>
-    food_list.reduce(
-      (total, item) => total + (cartItems[item._id] || 0) * item.price,
-      0
-    );
+    items.reduce((total, item) => total + item.price * item.count, 0);
 
   const deliveryFee = getTotalCartAmount() > 0 ? 2 : 0;
   const total = getTotalCartAmount() + deliveryFee;
@@ -59,8 +53,8 @@ const CartPage = () => {
         🛒 Your Cart
       </h1>
 
-      {/* Empty cart fallback */}
-      {Object.keys(cartItems).length === 0 ? (
+      {/* Empty Cart */}
+      {items.length === 0 ? (
         <div className="bg-white shadow-md rounded-lg py-2 px-6 text-center">
           <p className="text-gray-500 text-lg mb-1">
             Your cart is currently empty.
@@ -85,48 +79,53 @@ const CartPage = () => {
                 <p>Total</p>
               </div>
 
-              {food_list.map((item) =>
-                cartItems[item._id] ? (
-                  <div
-                    key={item._id}
-                    className="grid grid-cols-6 items-center px-6 py-5 border-b text-gray-800 text-sm"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={60}
-                      height={60}
-                      className="rounded-md"
-                    />
-                    <p className="col-span-2 font-medium">{item.name}</p>
-                    <p>${item.price}</p>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => updateQuantity(item._id, "dec")}
-                        className="bg-gray-200 p-1 rounded hover:bg-gray-300"
-                      >
-                        <FaMinus size={12} />
-                      </button>
-                      <span>{cartItems[item._id]}</span>
-                      <button
-                        onClick={() => updateQuantity(item._id, "inc")}
-                        className="bg-gray-200 p-1 rounded hover:bg-gray-300"
-                      >
-                        <FaPlus size={12} />
-                      </button>
-                    </div>
-                    <div className="flex justify-between items-center gap-4">
-                      <p>${item.price * cartItems[item._id]}</p>
-                      <button
-                        onClick={() => removeFromCart(item._id)}
-                        className="text-red-600 hover:text-red-800"
-                      >
-                        <FiTrash2 />
-                      </button>
-                    </div>
+              {items.map((item) => (
+                <div
+                  key={item.productId}
+                  className="grid grid-cols-6 items-center px-6 py-5 border-b text-gray-800 text-sm"
+                >
+                  <Image
+                    src={
+                      typeof item.image === "string"
+                        ? item.image
+                        : item.image?.url || "/placeholder.png"
+                    }
+                    alt={item.name}
+                    width={60}
+                    height={60}
+                    className="rounded-md object-cover"
+                  />
+                  <p className="col-span-2 font-medium">{item.name}</p>
+                  <p>${item.price.toFixed(2)}</p>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => decreaseQuantity(item)}
+                      className="bg-gray-200 p-1 rounded hover:bg-gray-300"
+                      aria-label={`Decrease quantity of ${item.name}`}
+                    >
+                      <FaMinus size={12} />
+                    </button>
+                    <span>{item.count}</span>
+                    <button
+                      onClick={() => increaseQuantity(item)}
+                      className="bg-gray-200 p-1 rounded hover:bg-gray-300"
+                      aria-label={`Increase quantity of ${item.name}`}
+                    >
+                      <FaPlus size={12} />
+                    </button>
                   </div>
-                ) : null
-              )}
+                  <div className="flex justify-between items-center gap-4">
+                    <p>${(item.price * item.count).toFixed(2)}</p>
+                    <button
+                      onClick={() => removeItem(item.productId)}
+                      className="text-red-600 hover:text-red-800"
+                      aria-label={`Remove ${item.name} from cart`}
+                    >
+                      <FiTrash2 />
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -138,17 +137,17 @@ const CartPage = () => {
 
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span>${getTotalCartAmount()}</span>
+                <span>${getTotalCartAmount().toFixed(2)}</span>
               </div>
               <hr />
               <div className="flex justify-between text-gray-600">
                 <span>Delivery Fee</span>
-                <span>${deliveryFee}</span>
+                <span>${deliveryFee.toFixed(2)}</span>
               </div>
               <hr />
               <div className="flex justify-between text-lg font-semibold text-gray-800">
                 <span>Total</span>
-                <span>${total}</span>
+                <span>${total.toFixed(2)}</span>
               </div>
 
               <button
@@ -157,7 +156,7 @@ const CartPage = () => {
                 className={`w-full mt-4 py-3 text-white font-medium rounded-lg transition ${
                   getTotalCartAmount() === 0
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-red-500 hover:bg-red-600"
+                    : "bg-tomato hover:bg-red-600"
                 }`}
               >
                 Proceed to Checkout
