@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero/Hero";
+import Blog from "@/components/Home/HomePage/Blog";
 
 import ExploreMenu from "@/components/Home/HomePage/ExploreMenu/ExploreMenu";
 
@@ -18,6 +19,7 @@ export default function Home() {
 
       <ExploreMenu />
       <FoodDisplay />
+      <Blog />
     </div>
   );
 }

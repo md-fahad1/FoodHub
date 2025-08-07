@@ -28,12 +28,16 @@ const Navbar = ({ setLogin }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="text-2xl font-bold text-tomato tracking-wide"
-            >
-              FoodHub
+          <div className="flex-shrink-0 flex items-center justify-center">
+            <Link href="/" className="flex items-center gap-2">
+              <img
+                src="/logo.png"
+                alt="FoodHub Logo"
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-2xl font-bold text-tomato tracking-wide">
+                FoodHub
+              </span>
             </Link>
           </div>
 
