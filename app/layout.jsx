@@ -6,7 +6,7 @@ import Script from "next/script";
 
 const FB_PIXEL_ID = "YOUR_PIXEL_ID";
 export const metadata = {
-  title: "Home | Ceramic & Food Products",
+  title: "Home | Food Hub",
   description:
     "Buy high-quality ceramic and food products online at affordable prices.",
   keywords: ["ceramic", "food", "organic", "kitchenware", "home decor"],
@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "Ceramic & Food Products",
     description: "Your one-stop shop for all ceramic and food items.",
-    url: "https://ceramicandfoodproducts.com",
+    url: "",
     siteName: "Ceramic & Food Products",
     images: [
       {

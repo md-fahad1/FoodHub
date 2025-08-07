@@ -19,7 +19,7 @@ const Navbar = ({ setLogin }) => {
   const menuItems = [
     { name: "home", href: "/" },
     { name: "menu", href: "#explore-menu" },
-    { name: "mobile-app", href: "#app-downlaod" },
+    { name: "Blog", href: "#blog" },
     { name: "contact us", href: "#footer" },
   ];
 
@@ -90,12 +90,11 @@ const Navbar = ({ setLogin }) => {
             </Link>
 
             {/* Sign In */}
-            <button
-              onClick={() => setLogin(true)}
-              className="hidden md:inline-block bg-black text-white px-4 py-1 rounded-md hover:bg-gray-800 transition"
-            >
-              Sign In
-            </button>
+            <Link href="/signin">
+              <button className="hidden md:inline-block  text-black px-4 py-0.5 rounded-md hover:bg-tomato hover:text-white border-2 border-tomato transition">
+                Sign In
+              </button>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button

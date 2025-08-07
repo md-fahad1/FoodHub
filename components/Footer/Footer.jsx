@@ -12,7 +12,7 @@ import { MdLocationOn } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#15191C] text-white py-10 px-[5%]">
+    <footer className="bg-[#15191C] text-white py-10 px-[5%] " id="footer">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand Info */}
         <div>

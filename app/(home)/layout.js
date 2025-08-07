@@ -45,7 +45,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Ceramicandfoodproducts",
+  title: "Food Hub",
   description: "app",
   icons: {
     icon: "/favicon1.ico", // <-- ADD this line
