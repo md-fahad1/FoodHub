@@ -8,7 +8,7 @@ const blogPosts = [
     title: "Why Fresh Ingredients Matter in Every Dish",
     author: "Chef Fahad",
     date: "August 5, 2025",
-    image: "https://source.unsplash.com/600x400/?food,healthy",
+    image: "blog3.jpeg",
     description:
       "Fresh ingredients not only boost the flavor of your meals, but also offer better nutrition and sustainability for the environment.",
   },
@@ -17,7 +17,7 @@ const blogPosts = [
     title: "Top 5 Customer-Favorite Dishes This Month",
     author: "Manager Sarah",
     date: "August 2, 2025",
-    image: "https://source.unsplash.com/600x400/?restaurant,dish",
+    image: "blog4.jpeg",
     description:
       "Explore the meals our customers love the most — featuring savory pasta, grilled rolls, and creamy desserts!",
   },
@@ -26,7 +26,7 @@ const blogPosts = [
     title: "Behind the Scenes: A Day in Our Kitchen",
     author: "Team DreamChef",
     date: "July 28, 2025",
-    image: "https://source.unsplash.com/600x400/?kitchen,chef",
+    image: "/blog1.jpeg",
     description:
       "Meet the chefs, see the process, and experience the passion that goes into every dish we serve.",
   },

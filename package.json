@@ -26,6 +26,7 @@
     "axios": "^1.7.2",
     "browser-image-compression": "^2.0.2",
     "firebase": "^10.12.3",
+    "framer-motion": "^12.23.12",
     "jodit-react": "^5.2.15",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",

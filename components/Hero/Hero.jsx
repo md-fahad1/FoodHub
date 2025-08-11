@@ -21,7 +21,7 @@ const Hero = () => {
       {/* Text Content */}
       <div className="relative z-20 h-full flex flex-col justify-center px-10 text-white">
         <div className=" px-1 py-1 md:px-6 md:py-4 rounded-md max-w-[90%] sm:max-w-[60%] md:max-w-[50%] mb-4">
-          <h1 className=" text-2xl md:text-4xl sm:text-5xl font-bold leading-tight">
+          <h1 className=" text-2xl text-tomato md:text-5xl sm:text-5xl font-bold leading-tight">
             Order your favorite <br /> food here
           </h1>
         </div>

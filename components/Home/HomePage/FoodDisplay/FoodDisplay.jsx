@@ -5,6 +5,7 @@ import { food_list } from "@/public/assets/assets";
 import FoodItem from "../FoodItem/FoodItem";
 import { useAppDispatch } from "@/lib/features/hooks";
 import { addToCart } from "@/lib/features/cart/cartSlice";
+import Link from "next/link";
 
 const FoodDisplay = () => {
   const [category, setCategory] = useState("All");
@@ -66,7 +67,7 @@ const FoodDisplay = () => {
       dispatch(addToCart({ productId: product._id, count: 0 }));
     }
   };
-
+  console.log("Food Display Rendered", food_list);
   // Generate unique category list
   const categories = [
     "All",
@@ -107,21 +108,24 @@ const FoodDisplay = () => {
       </div>
 
       {/* Product Grid */}
+
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {visibleFood.map((item) => (
-          <FoodItem
-            key={item._id}
-            id={item._id}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            image={item.image}
-            quantity={quantities[item._id] || 0}
-            showControls={activeControls[item._id] || false}
-            onToggleControls={() => handleToggleControls(item._id, item)}
-            onIncrease={() => handleIncrease(item._id, item)}
-            onDecrease={() => handleDecrease(item._id, item)}
-          />
+          <Link href={`/products/product-info/${item._id}`} key={item._id}>
+            <FoodItem
+              key={item._id}
+              id={item._id}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+              image={item.image}
+              quantity={quantities[item._id] || 0}
+              showControls={activeControls[item._id] || false}
+              onToggleControls={() => handleToggleControls(item._id, item)}
+              onIncrease={() => handleIncrease(item._id, item)}
+              onDecrease={() => handleDecrease(item._id, item)}
+            />
+          </Link>
         ))}
       </div>
 

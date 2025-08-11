@@ -70,8 +70,6 @@ const FoodItem = ({
             <FaStar />
             <FaStar />
             <FaStar />
-            <FaStar />
-            <FaStar />
           </div>
         </div>
         <p className="text-sm text-gray-500 line-clamp-2">{description}</p>
