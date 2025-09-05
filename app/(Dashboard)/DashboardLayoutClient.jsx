@@ -30,7 +30,7 @@ export default function DashboardLayoutClient({ children }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <StoreProvider>
-            <div className="lg:grid lg:grid-cols-12">
+            <div className="lg:grid lg:grid-cols-12 bg-pink-50">
               <section className="lg:col-span-2">
                 <Suspense fallback={<Loading message="Loading Sidebar..." />}>
                   <SideNavBar />
@@ -40,7 +40,7 @@ export default function DashboardLayoutClient({ children }) {
                 <Suspense fallback={<Loading message="Loading Header..." />}>
                   <DashboardHeader />
                 </Suspense>
-                <div className="my-4 md:my-8 md:px-8">{children}</div>
+                <div className="my-2 md:my-1 md:px-1">{children}</div>
               </section>
             </div>
           </StoreProvider>

@@ -7,7 +7,6 @@ import Select from "@mui/material/Select";
 import {
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -16,107 +15,82 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    name: "Completed",
-    pd: 90,
-  },
-  {
-    name: "Processing",
-    pd: 70,
-  },
-  {
-    name: "Pending",
-    pd: 50,
-  },
-  {
-    name: "Cancel",
-    pd: 20,
-  },
-  {
-    name: "On Hold",
-    pd: 65,
-  },
+// Dummy monthly sales data
+const monthlyData = [
+  { month: "Jan", sales: 4500 },
+  { month: "Feb", sales: 5200 },
+  { month: "Mar", sales: 6100 },
+  { month: "Apr", sales: 4800 },
+  { month: "May", sales: 7000 },
+  { month: "Jun", sales: 6700 },
+  { month: "Jul", sales: 7200 },
+  { month: "Aug", sales: 6800 },
+  { month: "Sep", sales: 7500 },
+  { month: "Oct", sales: 8000 },
+  { month: "Nov", sales: 8500 },
+  { month: "Dec", sales: 9000 },
 ];
 
 const OrderStatus = () => {
-  const [age, setAge] = useState("");
+  const [period, setPeriod] = useState("This Month");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setPeriod(event.target.value);
   };
 
   return (
-    <div className="border dark:border-[#3d47514d] rounded-md bg-white dark:bg-dark-bg shadow-[0_0px_5px_0px_rgba(0,0,0,0.3)]">
-      {/* header */}
-      <div className="flex justify-between items-center px-6 py-1 border-b dark:border-b-[#3d47514d]">
-        <h3 className="text-xl font-bold text-secondary dark:text-dark-color">
-          Order Status
-        </h3>
-        <FormControl sx={{ m: 1 }} size="small">
+    <div className="border rounded-xl bg-white shadow-lg">
+      {/* Header */}
+      <div className="flex justify-between items-center px-6 py-3 border-b">
+        <h3 className="text-xl font-bold text-tomato">Monthly Sales</h3>
+        {/* <FormControl size="small">
           <Select
-            id="demo-select-small"
-            className="text-white text-xl appearance-none font-medium outline-0 border-0 rounded-lg bg-dash-primary"
-            value={age}
+            value={period}
             onChange={handleChange}
+            className=" text-tomato rounded-lg"
             sx={{
-              ".MuiSvgIcon-root ": {
-                fill: "white !important",
-              },
-              color: "white",
+              ".MuiSvgIcon-root": { fill: "white" },
               "& .MuiSelect-select": {
-                paddingRight: 2,
-                paddingLeft: 2,
-                paddingTop: 0.5,
-                paddingBottom: 0.5,
+                paddingY: 0.5,
+                paddingX: 1,
               },
             }}
-            displayEmpty
           >
-            <MenuItem value="" className="font-medium">
-              Today
-            </MenuItem>
-
-            <MenuItem value={"Last Week"} className="font-medium">
-              This Week
-            </MenuItem>
-            <MenuItem value={"Last Month"} className="font-medium">
-              Last Month
-            </MenuItem>
+            <MenuItem value="Today">Today</MenuItem>
+            <MenuItem value="This Month">This Month</MenuItem>
+            <MenuItem value="Last 6 Months">Last 6 Months</MenuItem>
+            <MenuItem value="This Year">This Year</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
       </div>
-      <div className="mt-6">
-        <ResponsiveContainer height={300} width={"100%"}>
+
+      {/* Chart */}
+      <div className="p-6">
+        <ResponsiveContainer width="100%" height={350}>
           <BarChart
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-            barCategoryGap={16}
+            data={monthlyData}
+            margin={{ top: 20, right: 30, left: 0, bottom: 5 }}
+            barCategoryGap={20}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
-              dataKey="name"
-              style={{
-                fontSize: "14px",
-                fontFamily: "Times New Roman",
-                padding: "20px",
-              }}
+              dataKey="month"
+              tick={{ fontSize: 14, fontWeight: 500, fill: "#555" }}
             />
-            <YAxis />
-            <Tooltip />
-            {/* <Legend /> */}
+            <YAxis
+              tick={{ fontSize: 14, fontWeight: 500, fill: "#555" }}
+              tickFormatter={(value) => `$${value.toLocaleString()}`}
+            />
+            <Tooltip
+              formatter={(value) => `$${value.toLocaleString()}`}
+              cursor={{ fill: "rgba(0, 0, 0, 0.05)" }}
+            />
+            <Legend />
             <Bar
-              dataKey="pd"
-              fill="#2FB261"
-              activeBar={<Rectangle fill="#2FB261" stroke="" />}
-              radius={10}
-              style={{ paddingBottom: "20px" }}
-              clipPath="20px"
+              dataKey="sales"
+              name="Sales"
+              fill="#FC427B"
+              radius={[10, 10, 0, 0]}
             />
           </BarChart>
         </ResponsiveContainer>

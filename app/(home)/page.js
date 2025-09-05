@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero/Hero";
+import Hero1 from "@/components/Hero/Hero1";
 import Blog from "@/components/Home/HomePage/Blog";
 
 import ExploreMenu from "@/components/Home/HomePage/ExploreMenu/ExploreMenu";
@@ -15,7 +16,8 @@ export default function Home() {
   return (
     <div className={`md:w-[90%] w-[96%] mx-auto ${inter.className}`}>
       <WhatsApp />
-      <Hero />
+      {/* <Hero /> */}
+      <Hero1 />
 
       <ExploreMenu />
       <FoodDisplay />

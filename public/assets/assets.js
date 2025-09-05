@@ -10,6 +10,10 @@ import menu_5 from "./menu_5.png";
 import menu_6 from "./menu_6.png";
 import menu_7 from "./menu_7.png";
 import menu_8 from "./menu_8.png";
+import food1 from "./food11.png";
+import food3 from "./food33.png";
+import food4 from "./food44.png";
+import food5 from "./food55.png";
 
 import food_1 from "./food_1.png";
 import food_2 from "./food_2.png";
@@ -377,5 +381,43 @@ export const food_list = [
     price: 15,
     description: "A comforting bowl of flavorful and saucy noodles.",
     category: "Noodles",
+  },
+];
+
+export const food = [
+  {
+    _id: "1",
+    name: "Order your favorite food here",
+    image: food1,
+    description:
+      "Discover delicious meals from top restaurants near you. Whether you're craving something spicy, sweet, or savory — FoodHub brings the best flavors to your doorstep in no time.",
+  },
+  {
+    _id: "2",
+    name: "Fresh & Healthy Choices",
+    image: food3,
+    description:
+      "Packed with nutrients and bursting with flavor, our healthy options make eating well easier and tastier than ever.",
+  },
+  {
+    _id: "3",
+    name: "Made With Love",
+    image: food4,
+    description:
+      "Every bite tells a story of passion, quality, and care — crafted to satisfy your cravings and warm your heart.",
+  },
+  {
+    _id: "4",
+    name: "Fast Delivery at Your Doorstep",
+    image: food5,
+    description:
+      "From our kitchen to your table in minutes — hot, fresh, and ready when you are.",
+  },
+  {
+    _id: "5",
+    name: "Taste the Difference",
+    image: food3,
+    description:
+      "Not just food, but an experience — enjoy bold flavors, rich textures, and unforgettable taste with every order.",
   },
 ];

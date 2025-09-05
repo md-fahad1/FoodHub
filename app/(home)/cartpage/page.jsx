@@ -96,7 +96,7 @@ const CartPage = () => {
                     className="rounded-md object-cover"
                   />
                   <p className="col-span-2 font-medium">{item.name}</p>
-                  <p>${item.price.toFixed(2)}</p>
+                  <p>${(+item.price).toFixed(2)}</p>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => decreaseQuantity(item)}

@@ -63,15 +63,15 @@ const UserAccount = ({
         // sx={{ "& .MuiMenu-paper": { backgroundColor: "#000000" } }}
         // sx={{ "& .MuiPaper-root": { backgroundColor: "#000000" } }}
       >
-        {/* <MenuItem onClick={handleMenuClose}>
+        <MenuItem onClick={handleMenuClose}>
           <span className="flex gap-2 items-center dark:text-dark-color">
             <LuUser2 className="text-xl " />
             <Link href={`/User/${currentUser.Id}`}>
               <span>Profile</span>
             </Link>
           </span>
-        </MenuItem> */}
-        {/* <MenuItem onClick={handleMenuClose}>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
           <span className="flex gap-2 items-center dark:text-dark-color">
             <MdOutlineMail className="text-xl" /> <span>Inbox</span>
           </span>
@@ -90,7 +90,7 @@ const UserAccount = ({
           <span className="flex gap-2 items-center dark:text-dark-color">
             <BsCardChecklist className="text-xl" /> <span>Task Manager</span>
           </span>
-        </MenuItem> */}
+        </MenuItem>
         <MenuItem onClick={handleMenuClose}>
           <button
             className="flex gap-2 items-center dark:text-dark-color"

@@ -4,11 +4,11 @@
 import DashboardLayoutClient from "./DashboardLayoutClient";
 
 export const metadata = {
-  title: "Admin | Ceramic & Food Products",
-  description: "Manage orders, products, and users in your admin dashboard.",
+  title: "Admin | FoodHub",
+  description: "Manage orders and users in your admin dashboard.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "Admin Dashboard - Ceramic & Food Products",
+    title: "Admin Dashboard - FoodHub",
     description:
       "Secure admin dashboard for managing ceramic and food products.",
     url: "https://ceramicandfoodproducts.com/dashboard",
@@ -25,8 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Admin Dashboard | Ceramic & Food Products",
-    description: "Manage your products, orders, and analytics.",
+    title: "Admin Dashboard | FoodHub",
+    description: "Manage order and analytics.",
     images: ["/logo1.png"],
   },
 };

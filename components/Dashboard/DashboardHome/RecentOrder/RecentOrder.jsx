@@ -48,11 +48,12 @@ const RecentOrder = () => {
     <div className="mt-6 w-full static bg-white dark:bg-dark-bg border dark:border-[#3d47514d] rounded-md  shadow-[0_0px_5px_0px_rgba(0,0,0,0.3)]">
       {/* header */}
       <div className="flex justify-between items-center px-6 py-2">
-        <h3 className="text-xl font-bold text-secondary dark:text-dark-color">
+        <h3 className="text-xl font-bold text-tomato dark:text-dark-color">
           Recent Order
         </h3>
-        <Button
-          color="primary"
+        <p className="text-tomato">View All</p>
+        {/* <Button
+          className="bg-tomato hover:bg-red-600"
           variant="contained"
           sx={{
             color: "white",
@@ -61,7 +62,7 @@ const RecentOrder = () => {
           }}
         >
           View All
-        </Button>
+        </Button> */}
       </div>
       <Box sx={{ overflowY: "auto" }}>
         <TableContainer
@@ -70,7 +71,7 @@ const RecentOrder = () => {
           className="!rounded-none"
         >
           <Table sx={{ minWidth: 600 }} aria-label="simple table">
-            <TableHead className="bg-dash-primary">
+            <TableHead className="bg-tomato">
               <TableRow>
                 <StyledTableCell
                   align="center"
@@ -118,9 +119,7 @@ const RecentOrder = () => {
                     scope="row"
                     className="border-r dark:border-b-[#3d47514d] dark:bg-dark-bg dark:text-dark-color border-r-gray-200 dark:border-r-[#3d47514d]"
                   >
-                    <span className="font-medium text-dash-primary">
-                      #{order.Id}
-                    </span>
+                    <span className="font-medium text-tomato">#{order.Id}</span>
                   </StyledTableCell>
                   <StyledTableCell
                     align="center"

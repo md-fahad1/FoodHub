@@ -9,7 +9,6 @@ import { cartVisible } from "@/lib/features/cart/cartSlice"; // optional, only i
 
 const Navbar = ({ setLogin }) => {
   const { items } = useAppSelector((state) => state.cart);
-  console.log("item", items);
   const dispatch = useDispatch();
   const [menu, setMenu] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
@@ -157,7 +156,7 @@ const Navbar = ({ setLogin }) => {
                 setLogin(true);
                 toggleMenu();
               }}
-              className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+              className="bg-tomato text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
             >
               Sign In
             </button>

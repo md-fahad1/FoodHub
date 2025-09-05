@@ -9,6 +9,7 @@ import RecentOrder from "@/components/Dashboard/DashboardHome/RecentOrder/Recent
 import { Container } from "@mui/material";
 import RecentProduct from "@/components/Dashboard/DashboardHome/RecentProduct/RecentProduct";
 import RecentReview from "@/components/Dashboard/DashboardHome/RecentReview/RecentReview";
+import NewPieChart from "@/components/Dashboard/DashboardHome/PieChart/PieChart";
 
 const page = () => {
   const router = useRouter();
@@ -29,16 +30,18 @@ const page = () => {
   // }, [router]);
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="full">
       <OrderSummery />
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
         <div>
           <OrderStatus />
         </div>
         <div>
-          <TopProduct />
+          {/* <TopProduct /> */}
+          <NewPieChart />
         </div>
       </div>
+
       <section>
         <RecentOrder />
       </section>

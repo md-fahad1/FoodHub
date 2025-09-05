@@ -73,22 +73,16 @@ const RecentProduct = () => {
     <div className="mt-6 w-full static bg-white dark:bg-dark-bg border dark:border-[#3d47514d] rounded-md  shadow-[0_0px_5px_0px_rgba(0,0,0,0.3)]">
       {/* header */}
       <div className="flex justify-between items-center px-6 py-2">
-        <h3 className="text-xl font-bold text-secondary dark:text-dark-color">
+        <h3 className="text-xl font-bold text-tomato dark:text-dark-color">
           Recent Product
         </h3>
-        <Button
-          color="primary"
-          variant="contained"
-          sx={{
-            color: "white",
-            paddingY: "4px",
-            textTransform: "capitalize",
-          }}
-        >
+
+        <p className="text-tomato">
           <Link href="/dashboard/products" passHref>
             View All
           </Link>
-        </Button>
+          .
+        </p>
       </div>
       <Box
         sx={{
@@ -106,7 +100,7 @@ const RecentProduct = () => {
             }}
             aria-label="simple table"
           >
-            <TableHead className="bg-dash-primary ">
+            <TableHead className="bg-tomato ">
               <TableRow>
                 <StyledTableCell align="center">Image</StyledTableCell>
                 <StyledTableCell align="center">Name</StyledTableCell>

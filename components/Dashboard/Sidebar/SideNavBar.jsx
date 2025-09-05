@@ -18,6 +18,7 @@ import { FaAngleDown, FaGift, FaStar } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 import { HandlerContext } from "@/lib/providers/HandlerProvider";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SideNavBar() {
   const { isToggleOpen, handleDrawerOpen } = useContext(HandlerContext);
@@ -97,7 +98,7 @@ export default function SideNavBar() {
 
   const activeNav = (activePathName) => {
     if (pathname === activePathName) {
-      return { color: "#2FB261" };
+      return { color: "#FC427B" };
     } else {
       return { color: "#181818" };
     }
@@ -107,7 +108,13 @@ export default function SideNavBar() {
     <div>
       <Toolbar className="font-bold ">
         <Link href="/" className="text-inherit no-underline">
-          Ceramicandfoodproducts
+          <Image
+            src="/foodhub.png"
+            alt="Logo"
+            width={150}
+            height={50}
+            className="mx-auto"
+          />
         </Link>
       </Toolbar>
       <Divider />
@@ -117,10 +124,15 @@ export default function SideNavBar() {
             key={item.id}
             disablePadding
             // sx={{ borderBottom: "1px solid #EAEAEA" }}
-            className="!border-b dark:border-b-[#3d47514d]"
+            className="!border-b  dark:border-b-[#3d47514d]"
             onClick={() => router.push(item.href)}
           >
-            <ListItemButton style={activeNav(item.href)}>
+            <ListItemButton
+              style={activeNav(item.href)}
+              className={`rounded-md transition-all ${
+                activeNav ? "bg-pink-100" : ""
+              }`}
+            >
               <ListItemIcon
                 // style={activeNav(item.href)}
                 sx={{
@@ -131,7 +143,7 @@ export default function SideNavBar() {
                 }}
                 className={`${
                   pathname === item.href
-                    ? "!text-[#2FB261]"
+                    ? "!text-[#FC427B] "
                     : "dark:!text-dark-color !text-secondary"
                 }  `}
               >
@@ -146,7 +158,7 @@ export default function SideNavBar() {
                     : "dark:text-dark-color text-secondary"
                 }  `}
               />
-              {item.subCat && (
+              {/* {item.subCat && (
                 <FaAngleDown
                   className={`${
                     pathname === item.href
@@ -154,7 +166,7 @@ export default function SideNavBar() {
                       : "dark:!text-dark-color !text-secondary"
                   }  `}
                 />
-              )}
+              )} */}
             </ListItemButton>
           </ListItem>
         ))}

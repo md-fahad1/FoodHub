@@ -78,13 +78,15 @@ module.exports = {
         fadeInUp: "fadeInUp 0.3s ease-in-out",
       },
       colors: {
-        primary: "#192a56",
+        primary: "#FC427B",
         secondary: "#2F3336",
-        "dash-primary": "#2FB261",
+        "dash-primary": "#FC427B",
         "dark-color": "#e5e7eb",
         "dark-bg": "#0f1214",
 
         tomato: "#FC427B",
+        purple: "#273c75",
+        yellow: "#ffd32a",
       },
     },
   },

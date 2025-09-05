@@ -164,7 +164,7 @@ const SignIn = () => {
         <div className="flex items-center justify-center mb-3">
           <hr className="border-tomato border w-full max-w-[90px]" />
           <span className="mx-2 text-tomato font-semibold bg-white px-3 rounded-full border border-tomato select-none">
-            OR
+            --
           </span>
           <hr className="border-tomato border w-full max-w-[90px]" />
         </div>

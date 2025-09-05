@@ -18,7 +18,7 @@ const ContactModal = () => {
       {/* Floating Contact Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 md:bottom-5 right-3 md:right-5 bg-tomato text-white px-2 md:px-4 py-1 md:py-2 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-700 transition-all z-50"
+        className="fixed bottom-1 md:bottom-5 right-3 md:right-5 bg-tomato text-white px-2 md:px-4 py-1 md:py-2 rounded-full shadow-lg flex items-center gap-2 hover:bg-green-700 transition-all z-50"
       >
         <MdContactPhone size={22} />
         <span className="font-semibold">Contact</span>
