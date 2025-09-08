@@ -3,7 +3,7 @@ import StoreProvider from "./StoreProvider";
 import "./globals.css"; // Optional: Global styles
 import FbPixelTracker from "@/components/FbPixelTracker";
 import Script from "next/script";
-
+import WhatsApp from "@/components/Whatsapp/WhatsApp";
 const FB_PIXEL_ID = "YOUR_PIXEL_ID";
 export const metadata = {
   title: "Home | Food Hub",
@@ -60,6 +60,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <FbPixelTracker />
+        <WhatsApp />
         <StoreProvider>{children}</StoreProvider>
       </body>
     </html>

@@ -64,13 +64,11 @@ export default function RootLayout({ children }) {
                 <Suspense fallback={<Loading message="Loading header..." />}>
                   <Header />
                 </Suspense>
-
                 <main>
                   <Suspense fallback={<Loading message="Loading page..." />}>
                     {children}
                   </Suspense>
                 </main>
-
                 <Suspense fallback={<Loading message="Loading footer..." />}>
                   <Footer />
                 </Suspense>

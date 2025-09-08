@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
