@@ -112,14 +112,14 @@ const OrderSummery = () => {
     },
     {
       title: "Total Sales",
-      icon: <FaSellsy className="text-yellow-500" />,
+      icon: <FaSellsy className="text-blue-500" />,
       amount: 4500,
       trend: "down",
       trendValue: 300,
     },
     {
       title: "Total Orders",
-      icon: <FaBox className="text-purple-500" />,
+      icon: <FaBox className="text-yellow" />,
       amount: 78,
       trend: "up",
       trendValue: 12,
