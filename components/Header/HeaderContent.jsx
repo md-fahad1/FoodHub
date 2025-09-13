@@ -151,15 +151,17 @@ const Navbar = ({ setLogin }) => {
             )}
 
             {/* Mobile Sign In */}
-            <button
-              onClick={() => {
-                setLogin(true);
-                toggleMenu();
-              }}
-              className="bg-tomato text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
-            >
-              Sign In
-            </button>
+            <Link href="/signin">
+              <button
+                onClick={() => {
+                  setLogin(true);
+                  toggleMenu();
+                }}
+                className="bg-tomato text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+              >
+                Sign In
+              </button>
+            </Link>
           </div>
         </div>
       )}
