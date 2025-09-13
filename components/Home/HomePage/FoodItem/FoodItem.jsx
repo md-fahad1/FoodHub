@@ -2,7 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaPlus, FaMinus, FaStar } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const FoodItem = ({
   id,
@@ -16,8 +18,22 @@ const FoodItem = ({
   onIncrease,
   onDecrease,
 }) => {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/food/${id}`); // Navigate to info page
+  };
+
+  const stopClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   return (
-    <div className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-[1.02] transition duration-300">
+    <div
+      onClick={handleCardClick}
+      className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden transform hover:scale-[1.02] transition duration-300 cursor-pointer"
+    >
       {/* Image Section */}
       <div className="relative">
         <Image
@@ -32,7 +48,10 @@ const FoodItem = ({
         <div className="absolute bottom-4 right-4">
           {!showControls ? (
             <button
-              onClick={onToggleControls}
+              onClick={(e) => {
+                stopClick(e);
+                onToggleControls();
+              }}
               className="bg-red-500 text-white p-2 rounded-full shadow-lg hover:scale-110 transition"
               title="Add to cart"
             >
@@ -41,7 +60,10 @@ const FoodItem = ({
           ) : (
             <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-full shadow-lg">
               <button
-                onClick={onDecrease}
+                onClick={(e) => {
+                  stopClick(e);
+                  onDecrease();
+                }}
                 className="text-red-500 hover:text-red-700 transition"
                 title="Decrease quantity"
               >
@@ -49,7 +71,10 @@ const FoodItem = ({
               </button>
               <span className="font-medium text-gray-700">{quantity}</span>
               <button
-                onClick={onIncrease}
+                onClick={(e) => {
+                  stopClick(e);
+                  onIncrease();
+                }}
                 className="text-green-600 hover:text-green-800 transition"
                 title="Increase quantity"
               >

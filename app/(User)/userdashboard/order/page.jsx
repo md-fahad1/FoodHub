@@ -35,7 +35,6 @@ const UserOrder = () => {
           currentPage * itemsPerPage
         );
 
-        // Set the products for the current page
         setProducts(data);
       } catch (error) {
         console.error("Error fetching data:", error);

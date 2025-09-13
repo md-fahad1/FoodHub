@@ -154,8 +154,7 @@ const Navbar = ({ setLogin }) => {
             <Link href="/signin">
               <button
                 onClick={() => {
-                  setLogin(true);
-                  toggleMenu();
+                  setIsOpen(false);
                 }}
                 className="bg-tomato text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
               >
